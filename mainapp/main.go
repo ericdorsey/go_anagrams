@@ -1,7 +1,5 @@
 package main
 
-// test with ("bberp", "pprbe")
-
 import(
     "fmt"
     "fake.com/anagram/anagram1"
@@ -10,7 +8,6 @@ import(
 
 func PrettyAnagramTester(f func(string, string) bool, s1 string, s2 string) {
     fmt.Printf("Comparing %v and %v\n", s1, s2)
-    //r := anagram1.AnagramTester(s1, s2)
     r := f(s1, s2)
     fmt.Printf("%v\n", r)
 }
