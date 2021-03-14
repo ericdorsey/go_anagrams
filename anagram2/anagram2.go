@@ -1,12 +1,11 @@
-package main
+package anagram2
 
 import (
-    "fmt"
     "sort"
 )
 
-// Compares two []int slices and returns true if they're the same
 func CompareIntSlices(s1 []int, s2 []int) bool {
+    // Compares two []int slices and returns true if they're the same
     if len(s1) != len(s2) {
         return false
     }
@@ -19,9 +18,7 @@ func CompareIntSlices(s1 []int, s2 []int) bool {
     return true
 }
 
-func AnagramTester(s1 string, s2 string) {
-    fmt.Printf("Given %v and %v\n", s1, s2)
-
+func AnagramTester(s1 string, s2 string) bool {
     // Declare empty []rune slices
     var s1s []rune
     var s2s []rune
@@ -31,10 +28,6 @@ func AnagramTester(s1 string, s2 string) {
     for _, v := range s2 {
         s2s = append(s2s, v)
     }
-    fmt.Println("\nPrior rune values:")
-    fmt.Println(s1s)
-    fmt.Println(s2s)
-
     // Declare empty []int slices
     var i1s []int
     var i2s []int 
@@ -51,16 +44,7 @@ func AnagramTester(s1 string, s2 string) {
     sort.Ints(i1s)
     sort.Ints(i2s)
 
-    fmt.Println("\nRunes converted to ints; sorted:")
-    fmt.Println(i1s)
-    fmt.Println(i2s)
-    
     // Is it an anagram?
-    anagram := CompareIntSlices(i1s, i2s)
-    //return a
-    fmt.Printf("\nAnagram? %v\n", anagram)
-}
-
-func main() {
-    AnagramTester("berp", "bpre") 
+    isAnagram := CompareIntSlices(i1s, i2s)
+    return isAnagram
 }
